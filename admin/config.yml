@@ -1,0 +1,21 @@
+backend:
+  name: github
+  repo: kharisma-13/sdn3pacung
+  branch: main
+
+# Tempat menyimpan foto-foto yang diunggah guru
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# Form isian untuk Guru
+collections:
+  - name: "berita"
+    label: "Berita & Pengumuman"
+    folder: "content/berita"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Judul Berita", name: "title", widget: "string" }
+      - { label: "Tanggal Publish", name: "date", widget: "datetime" }
+      - { label: "Penulis", name: "author", widget: "string", default: "Admin" }
+      - { label: "Isi Berita", name: "body", widget: "markdown" }
