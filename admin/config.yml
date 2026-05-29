@@ -2,6 +2,7 @@ backend:
   name: github
   repo: kharisma-13/sdn3pacung
   branch: main
+  base_url: https://decap-cms-oauth-provider.vercel.app
 
 # Tempat menyimpan foto-foto yang diunggah guru
 media_folder: "images/uploads"
