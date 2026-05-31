@@ -2,7 +2,6 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    // Mengambil ID & Secret dari variabel Cloudflare Anda
     const clientId = env.CLIENT_ID || env.GITHUB_CLIENT_ID;
     const clientSecret = env.CLIENT_SECRET || env.GITHUB_CLIENT_SECRET;
 
@@ -17,6 +16,11 @@ export default {
       const code = url.searchParams.get('code');
       if (!code) {
         return new Response('Kode otorisasi tidak ditemukan.', { status: 400 });
+      }
+
+      // DETEKSI OTOMATIS: Memastikan apakah Cloudflare berhasil membaca Secret Anda
+      if (!clientSecret) {
+        return new Response('Eror: CLIENT_SECRET kosong atau tidak terbaca di Cloudflare! Periksa kembali tab Variables & Secrets Anda.', { status: 500 });
       }
 
       // Tukar kode verifikasi dari GitHub menjadi Access Token resmi
@@ -65,7 +69,6 @@ export default {
       });
     }
 
-    // PENTING: Jika bukan rute /auth atau /callback, tampilkan file HTML website Anda (index.html / admin)
     return env.ASSETS.fetch(request);
   }
 };
