@@ -3,6 +3,9 @@
   "name": "sdn3pacung",
   "main": "index.js",
   "compatibility_date": "2026-05-31",
+  "vars": {
+    "CLIENT_ID": "Ov23livstA8MmmdgH17j"
+  },
   "observability": {
     "enabled": true
   },
