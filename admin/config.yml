@@ -2,21 +2,38 @@ backend:
   name: github
   repo: kharisma-13/sdn3pacung
   branch: main
-  base_url: https://sdn3pacung.kadekdiankharisma.workers.dev
+  base_url: https://sdn3pacung.pages.dev
+  auth_endpoint: auth
 
-# Tempat menyimpan foto-foto yang diunggah guru
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
-# Form isian untuk Guru
 collections:
+  # 1. Koleksi untuk menulis Berita (yang sudah berhasil dibuat)
   - name: "berita"
     label: "Berita & Pengumuman"
-    folder: "content/berita"
+    folder: "_posts/berita"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Judul Berita", name: "title", widget: "string" }
-      - { label: "Tanggal Publish", name: "date", widget: "datetime" }
-      - { label: "Penulis", name: "author", widget: "string", default: "Admin" }
-      - { label: "Isi Berita", name: "body", widget: "markdown" }
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
+      - {label: "Judul", name: "title", widget: "string"}
+      - {label: "Tanggal", name: "date", widget: "datetime"}
+      - {label: "Penulis", name: "author", widget: "string"}
+      - {label: "Isi Berita", name: "body", widget: "markdown"}
+
+  # 2. Tambahan Baru: Koleksi Khusus untuk Mengatur Halaman Utama
+  - name: "halaman"
+    label: "Pengaturan Halaman"
+    delete: false # Agar halaman utama tidak tidak sengaja terhapus
+    editor:
+      preview: false
+    files:
+      - name: "home"
+        label: "Halaman Utama (Beranda)"
+        file: "index.html" # ⚠️ CATATAN: Jika di VS Code berkas depan Anda bernama index.md, ganti tulisan ini menjadi index.md
+        fields:
+          - {label: "Judul Utama Sekolah", name: "title", widget: "string"}
+          - {label: "Slogan / Sub-judul", name: "subtitle", widget: "string"}
+          - {label: "Foto Banner Utama", name: "banner_image", widget: "image"}
+          - {label: "Teks Sambutan Kepala Sekolah", name: "body", widget: "markdown"}
