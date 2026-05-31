@@ -1,0 +1,21 @@
+{
+  "title": "Menempa Generasi Cerdas, Berakhlak Mulia & Inovatif",
+  "subtitle": "Selamat datang di wadah informasi digital SDN 3 Pacung...",
+  "banner_image": "/images/uploads/banner-sekolah.jpg",
+  "visi": "Mewujudkan generasi yang cerdas, berkarakter, dan siap menghadapi masa depan.",
+  "misi": [
+    "Menyelenggarakan pendidikan yang berkualitas dan inklusif.",
+    "Menanamkan nilai budi pekerti dan karakter lokal yang kuat.",
+    "Mengembangkan kreativitas siswa melalui pemanfaatan teknologi."
+  ],
+  "galeri": [
+    {
+      "gambar": "/images/uploads/galeri1.jpg",
+      "keterangan": "Kegiatan Upacara Bendera Hari Senin"
+    },
+    {
+      "gambar": "/images/uploads/galeri2.jpg",
+      "keterangan": "Proses Belajar Mengajar Interaktif di Kelas"
+    }
+  ]
+}

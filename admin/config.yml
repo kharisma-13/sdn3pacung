@@ -9,7 +9,6 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  # 1. Koleksi untuk menulis Berita (yang sudah berhasil dibuat)
   - name: "berita"
     label: "Berita & Pengumuman"
     folder: "_posts/berita"
@@ -22,18 +21,33 @@ collections:
       - {label: "Penulis", name: "author", widget: "string"}
       - {label: "Isi Berita", name: "body", widget: "markdown"}
 
-  # 2. Tambahan Baru: Koleksi Khusus untuk Mengatur Halaman Utama
-  - name: "halaman"
-    label: "Pengaturan Halaman"
-    delete: false # Agar halaman utama tidak tidak sengaja terhapus
+  - name: "pengaturan"
+    label: "Konten Website"
+    delete: false
     editor:
       preview: false
     files:
-      - name: "home"
-        label: "Halaman Utama (Beranda)"
-        file: "index.html" # ⚠️ CATATAN: Jika di VS Code berkas depan Anda bernama index.md, ganti tulisan ini menjadi index.md
+      - name: "profil_sekolah"
+        label: "Profil & Informasi Sekolah"
+        file: "data-sekolah.json"
         fields:
-          - {label: "Judul Utama Sekolah", name: "title", widget: "string"}
-          - {label: "Slogan / Sub-judul", name: "subtitle", widget: "string"}
+          - {label: "Judul Utama Beranda", name: "title", widget: "string"}
+          - {label: "Slogan / Teks Sambutan", name: "subtitle", widget: "text"}
           - {label: "Foto Banner Utama", name: "banner_image", widget: "image"}
-          - {label: "Teks Sambutan Kepala Sekolah", name: "body", widget: "markdown"}
+          
+          # Bagian Visi & Misi Sekolah
+          - {label: "Visi Sekolah", name: "visi", widget: "text"}
+          - label: "Misi Sekolah"
+            name: "misi"
+            widget: "list"
+            summary: "{{fields.misi}}"
+            field: {label: "Butir Misi", name: "butir", widget: "string"}
+
+          # Bagian Galeri Foto Sekolah
+          - label: "Galeri Foto"
+            name: "galeri"
+            widget: "list"
+            summary: "{{fields.keterangan}}"
+            fields:
+              - {label: "Foto Kegiatan", name: "gambar", widget: "image"}
+              - {label: "Keterangan Foto", name: "keterangan", widget: "string"}
