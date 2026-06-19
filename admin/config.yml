@@ -2,7 +2,7 @@ backend:
   name: github
   repo: kharisma-13/sdn3pacung
   branch: main
-  base_url: https://sdn3pacung.pages.dev
+  base_url: https://sdn3pacung.kadekdiankharisma.workers.dev/
   auth_endpoint: auth
 
 media_folder: "images/uploads"
